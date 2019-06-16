@@ -1,10 +1,9 @@
 module.exports = {
-  base: 'vue-press',
+  base: "/vue-press/",
   dest: 'dist',
   title: '前端打杂师 - Zhu',
   description: 'All is well',
   lastUpdated: '最后更新时间',
-    // 2.设置true，开启最后更新时间
   lastUpdated: true,
   themeConfig: {
     nav: [
@@ -14,7 +13,7 @@ module.exports = {
       { text: 'Blog', 
         link: '/vue/',
       },
-      { text: 'GitHub', link: 'https://github.com/ThecoadeR'}
+      { text: 'GitHub', link: 'https://github.com/ThecoadeR/vue-press/'}
     ],
     sidebar: [
       {
