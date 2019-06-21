@@ -1,8 +1,10 @@
 module.exports = {
   base: "/vue-press/",
-  dest: 'dist',
   title: '前端打杂师 - Zhu',
   description: 'All is well',
+  head: [
+    ['link', { rel: 'icon', href: '/image/favicon.ico' }]
+  ],
   lastUpdated: '最后更新时间',
   lastUpdated: true,
   themeConfig: {
