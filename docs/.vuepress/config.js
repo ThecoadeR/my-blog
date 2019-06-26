@@ -9,15 +9,29 @@ module.exports = {
   lastUpdated: true,
   themeConfig: {
     nav: [
-      { text: 'Home', 
+      { text: '首页', 
         link: '/' 
       },
-      { text: 'Blog', 
+      { text: '博客', 
         link: '/vue/',
       },
       { text: 'GitHub', link: 'https://github.com/ThecoadeR/vue-press/'}
     ],
     sidebar: [
+      {
+        title: 'VuePress',
+        collapsable: true,
+        children: [
+          '/VuePress/'
+        ]
+      },
+      {
+        title: 'JavaScript',
+        collapsable: true,
+        children: [
+          '/JS/'
+        ]
+      },
       {
         title: 'Vue.js',
         collapsable: true,
