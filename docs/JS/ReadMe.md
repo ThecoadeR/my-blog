@@ -123,4 +123,39 @@ obj5.sayName('obj5')
 控制台输出结果如下
 ![123](./img/proto/console4.jpg)
 
-## 未完待续...
+## instanceof
+
+`instanceof` 这个应该大家都不陌生 主要还是用于区分某个实例是否是属于一个特定的类 下面来说说`instanceof`的工作原理
+
+其实也非常简单 上文其实有提到过 实例是通过`__proto`来和原型对象关联的 而构造函数呢 又是通过`prototype`来关联原型对象的 所以呢 如果一个实例的`__proto__`和一个构造函数的`prototype`如果是一致的 那么其实是可以暂且说 这个实例是属于某个特定的类的 为什么说是暂且呢 一会儿来分析 先来看看刚才说的这些对不对吧 首先通过构造函数 new 一个 obj 实例 然后在控制台里看看
+刚才说的对不对
+```js
+var foo = function(name) {
+  this.name = name
+}
+var obj = new foo('obj1')
+```
+看看控制台输出了啥
+![123](./img/proto/console5.jpg)
+
+和我们之前说的一样 构造函数foo的```prototype```和实例obj的```__proto__```属性 是一致的 那么接下来来看一个神奇的问题 ```obj instanceof Object```会返回什么？
+答案是 ```true```如果有不相信的同学 其实可以自己去控制台里试试看 一定是返回的true 这是为什么呢  其实也还是脱离不了原型链这个概念
+
+首先 实例obj是构造函数foo new出来的一个对象 但是呢 构造函数foo 其实也是Object下的一个对象 这么一说可能还有点抽象 但是如果结合 ```instanceof```的工作原理的话 其实就不难理解了 其实无外乎也就是一个原型链的查找过程
+```js
+// 首先
+    obj1.__proto__ === foo.prototype // true
+// 其次
+    foo.prototype.__poto__ === Object.prototype // true
+// 最后
+    obj1 instanceof Object // true
+```
+![123](./img/proto/console6.jpg)
+
+所以这也是为什么说 用instanceof 有时候并不够严谨的原因 那么真正严谨的应该是什么呢 其实答案应该也是呼之欲出了 上文有提到过 每一个构造函数在书写的时候 JavaScript模板引擎就会自动添加一个```prototype``` 而这个```prototype```又是通过```constructor```去判断到底具体是哪个构造函数 所以 用```constructor```其实应该是更为严谨的一种写法
+```js
+obj1.__proto__.constructor === foo // true
+obj1.__proto__.constructor === Object // false
+```
+
+### All is well 💯

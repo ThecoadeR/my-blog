@@ -7,7 +7,7 @@
     <meta name="description" content="All is well">
     <link rel="icon" href="/vue-press/image/favicon.ico">
     
-    <link rel="preload" href="/vue-press/assets/css/0.styles.e40496fb.css" as="style"><link rel="preload" href="/vue-press/assets/js/app.7bb4df73.js" as="script"><link rel="preload" href="/vue-press/assets/js/2.e5174dac.js" as="script"><link rel="preload" href="/vue-press/assets/js/9.8eaf13f1.js" as="script"><link rel="prefetch" href="/vue-press/assets/js/10.0fcdbaa2.js"><link rel="prefetch" href="/vue-press/assets/js/11.b7ea0b1a.js"><link rel="prefetch" href="/vue-press/assets/js/3.5f9e62d6.js"><link rel="prefetch" href="/vue-press/assets/js/4.ee1b1525.js"><link rel="prefetch" href="/vue-press/assets/js/5.b35d97b7.js"><link rel="prefetch" href="/vue-press/assets/js/6.16eaecb5.js"><link rel="prefetch" href="/vue-press/assets/js/7.e785e59a.js"><link rel="prefetch" href="/vue-press/assets/js/8.3bdc6e83.js">
+    <link rel="preload" href="/vue-press/assets/css/0.styles.e40496fb.css" as="style"><link rel="preload" href="/vue-press/assets/js/app.23ad2c51.js" as="script"><link rel="preload" href="/vue-press/assets/js/2.eb85f706.js" as="script"><link rel="preload" href="/vue-press/assets/js/5.565623e2.js" as="script"><link rel="prefetch" href="/vue-press/assets/js/10.a70bc9fd.js"><link rel="prefetch" href="/vue-press/assets/js/11.b7ea0b1a.js"><link rel="prefetch" href="/vue-press/assets/js/3.599172b6.js"><link rel="prefetch" href="/vue-press/assets/js/4.42419b8f.js"><link rel="prefetch" href="/vue-press/assets/js/6.b1af823d.js"><link rel="prefetch" href="/vue-press/assets/js/7.b107ff8f.js"><link rel="prefetch" href="/vue-press/assets/js/8.cc2fb381.js"><link rel="prefetch" href="/vue-press/assets/js/9.982617f1.js">
     <link rel="stylesheet" href="/vue-press/assets/css/0.styles.e40496fb.css">
   </head>
   <body>
@@ -44,8 +44,7 @@
   title<span class="token punctuation">:</span> <span class="token string">'前端打杂师 - Zhu'</span><span class="token punctuation">,</span>
   description<span class="token punctuation">:</span> <span class="token string">'All is well'</span>
 <span class="token punctuation">}</span>
-</code></pre></div><p>当这样配置完成以后 当你运行项目的时候 应该可以看见类似下图的主页内容
-<img src="/docs-img/home.jpg"></p> <h2 id="主题配置"><a href="#主题配置" aria-hidden="true" class="header-anchor">#</a> 主题配置</h2> <ul><li>导航栏配置</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>themeConfig<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+</code></pre></div><p>当这样配置完成以后 当你运行项目的时候 应该可以看见类似下图的主页内容</p> <p><img src="/vue-press/assets/img/home.6f03b387.jpg" alt=""></p> <h2 id="主题配置"><a href="#主题配置" aria-hidden="true" class="header-anchor">#</a> 主题配置</h2> <ul><li>导航栏配置</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>themeConfig<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     nav<span class="token punctuation">:</span> <span class="token punctuation">[</span>
       <span class="token punctuation">{</span> text<span class="token punctuation">:</span> <span class="token string">'首页'</span><span class="token punctuation">,</span> 
         link<span class="token punctuation">:</span> <span class="token string">'/'</span> 
@@ -63,8 +62,7 @@
     sidebar<span class="token punctuation">:</span> <span class="token string">'auto'</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><p>这样VuePress会自动寻找到对应的标题(例如<code>h1 h2 h3</code>标签) 并且渲染在侧边栏上</p> <p>但是往往有时候 我们需要更复杂的侧边栏 例如下图
-<img src="/docs-img/slider.jpg"></p> <p>这样的侧边栏 我个人认为更适合 也就是包含了具体的分类 同时分类下包含了文章标题并且可以折叠 如果想实现这样的侧边栏配置 那么则需要将每一个侧边栏都当做一个对象 写入<code>themeConfig</code></p> <div class="language-js extra-class"><pre class="language-js"><code>sidebar<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+</code></pre></div><p>这样VuePress会自动寻找到对应的标题(例如<code>h1 h2 h3</code>标签) 并且渲染在侧边栏上</p> <p>但是往往有时候 我们需要更复杂的侧边栏 例如下图</p> <p><img src="/vue-press/assets/img/slider.ee8c815e.jpg" alt=""></p> <p>这样的侧边栏 我个人认为更适合 也就是包含了具体的分类 同时分类下包含了文章标题并且可以折叠 如果想实现这样的侧边栏配置 那么则需要将每一个侧边栏都当做一个对象 写入<code>themeConfig</code></p> <div class="language-js extra-class"><pre class="language-js"><code>sidebar<span class="token punctuation">:</span> <span class="token punctuation">[</span>
       <span class="token punctuation">{</span>
         title<span class="token punctuation">:</span> <span class="token string">'VuePress'</span><span class="token punctuation">,</span>
         collapsable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 是否折叠</span>
@@ -124,6 +122,6 @@
         </a>
         →
       </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/vue-press/assets/js/app.7bb4df73.js" defer></script><script src="/vue-press/assets/js/2.e5174dac.js" defer></script><script src="/vue-press/assets/js/9.8eaf13f1.js" defer></script>
+    <script src="/vue-press/assets/js/app.23ad2c51.js" defer></script><script src="/vue-press/assets/js/2.eb85f706.js" defer></script><script src="/vue-press/assets/js/5.565623e2.js" defer></script>
   </body>
 </html>
