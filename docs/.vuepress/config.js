@@ -30,7 +30,8 @@ module.exports = {
         collapsable: true,
         children: [
           '/JS/',
-          '/JS/OOP.md'
+          '/JS/OOP.md',
+          '/JS/Browser.md'
         ]
       },
       {
