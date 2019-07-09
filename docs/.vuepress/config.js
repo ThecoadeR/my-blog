@@ -48,6 +48,13 @@ module.exports = {
         children: [
           '/Webpack/'
         ]
+      },
+      {
+        title: '浏览器相关',
+        collapsable: true,
+        children: [
+          '/Browser/'
+        ]
       }
     ],
     markdown: {

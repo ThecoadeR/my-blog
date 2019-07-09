@@ -38,3 +38,46 @@
   * CSS改动
   * 其实就是 页面显示的内容如果发生变化 一定就会触发浏览器的重绘
 
+## 提升页面性能的方法
+* 资源压缩合并 减少Http请求
+* 非核心代码异步加载 -> 异步加载的方式 -> 异步加载的区别
+  * #### 异步加载的方式
+  1. 动态脚本加载
+  ```js
+  var scprit = document.createElement('script')
+  scrpit.type = 'text/javascript'
+  document.body.apped(script)
+  ```
+  2. defer
+  在```script```标签上添加这个属性
+  3. async
+  同上
+
+  * #### 异步加载的区别
+  1.  ```defer```是在HTML解析完之后才执行 如果是多个 按照加载顺序依次执行
+  2.  ```async```是在加载完之后立即执行 如果是多个 执行顺序和加载顺序无关
+* 利用浏览器缓存 -> 缓存的分类 -> 缓存的原理
+  * #### 缓存的分类
+  * ##### 概念: 缓存 => 各资源文件在浏览器中的备份 其实就可以理解成 资源文件存在了本地 直接从本地读取 而不是再次请求 
+  1. 强缓存 (览器不会询问 而是直接就用)
+  ```
+  // http-header中的两个字段 一个是过期时间 这个是服务器的绝对时间
+  Expiress Expires:Thu, 9 Jul 2019 20:26:30 GMT
+  // 另一个是相对时间 也就是客户端在1000秒之内不会再请求服务器 
+  Cache-Control Cache-Control:max-age=1000
+  ```
+  2. 协商缓存 (浏览器发现本地有文件 但是不确定是否使用 需要询问服务器)
+  ```
+  Last-Modified
+  If-Modified-Since
+  Etag
+  If-None-Match
+  ```
+* 使用CDN
+* 预解析DNS
+```html
+// 大部分的浏览器在http协议下 默认开启预解析 但是在https协议下不会
+<link rel="dns-prefetch" href="//host_name_to_prefetch.com">
+// 强制打开预解析
+<meta http-equiv="x-dns-prefetch-control" content="on">
+```
