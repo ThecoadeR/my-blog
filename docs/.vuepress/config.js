@@ -29,9 +29,9 @@ module.exports = {
         title: 'JavaScript',
         collapsable: true,
         children: [
+          '/JS/Base.md',
           '/JS/',
-          '/JS/OOP.md',
-          '/JS/Browser.md'
+          '/JS/OOP.md'
         ]
       },
       {
