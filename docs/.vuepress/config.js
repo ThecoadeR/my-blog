@@ -22,7 +22,7 @@ module.exports = {
         title: 'VuePress',
         collapsable: true,
         children: [
-          '/VuePress/'
+          '/VuePress/' 
         ]
       },
       {

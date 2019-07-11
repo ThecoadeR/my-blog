@@ -79,3 +79,53 @@
   * Number
   * String
   * Boolean
+
+## this指向
+  * ```this``` 在定义的时候并不清楚指向 只有在执行的时候才清楚
+  * ```this``` 会根据执行上下文的不同指向也会不同
+    * 作为构造函数执行
+    ```js
+    function Person (name) {
+      this.name = name
+    }
+    var p1 = new Person('T-mac')
+    // this === Person
+    // 在构造函数里 this其实指向的应该就是构造函数本身
+    ```
+    * 作为对象属性执行
+    ```js
+    var obj = {
+      name: 'A',
+      fn: function () {
+        console.log(this.name)
+      }
+    }
+    obj.fn()
+    // this === obj
+    // 在对象属性里 this指向的就是这个对象本身
+    ```
+    * 作为普通函数执行
+    ```js
+    function = function () {
+      console.log('function')
+    }
+    function()
+    // this === window
+    // 作为一个普通函数执行 那么this指向的就是window对象
+    ```
+    * ```call``` ```apply``` ```bind```
+    这三个方法都可以改变this的指向
+    ```js
+    fn = function (name) {
+      console.log(name)
+      console.log(this)
+    }
+    fn.call('A','T-mac')
+    // 这样就把this的指向 从window指向了字符串A
+
+    fn1 = function (name) {
+      console.log(name)
+      console.log(this)
+    }.bind('B','T-mac')
+    ```
+    * ```call``` ```apply```区别就在于传参方式不同 ```apply```则是传入一个数组
