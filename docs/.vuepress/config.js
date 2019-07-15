@@ -55,6 +55,13 @@ module.exports = {
         children: [
           '/Browser/'
         ]
+      },
+      {
+        title: '前端代码规范',
+        collapsable: true,
+        children: [
+          '/CheckList/'
+        ]
       }
     ],
     markdown: {
