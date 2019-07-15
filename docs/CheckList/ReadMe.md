@@ -36,7 +36,7 @@
   * 定时器 ```setTimeout``` ```setInterval```需要在对应的逻辑处销毁 例如页面销毁
 
 * ## Vue推荐写法
-  * 自定义组件名应该是多个单词 可以有效避免因```html``模板标签重复而出现的问题
+  * 自定义组件名应该是多个单词 可以有效避免因```html```模板标签重复而出现的问题
   ```html
   // 不推荐
   <Header></Header>
@@ -93,7 +93,13 @@
     }
   }
   ```
-
+  * 标签中如果有多个特定的属性 需要分行显示
+  ```html
+  <Home-Header 
+    v-for="item in dataList"
+    :dataList="dataList"
+  />
+  ```
   * ```script```内部书写顺序
   ```js
   export default {
