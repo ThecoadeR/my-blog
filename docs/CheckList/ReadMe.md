@@ -140,3 +140,5 @@
   * 单文件尽量保持300行以内 提高代码可阅读性
 
   * 配置husky 代码提交时 触发git hooks eslint有有报错无法提交git
+
+  * ```git commit -m ``` ```git commit -am```
