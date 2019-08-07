@@ -7,7 +7,7 @@
     <meta name="description" content="All is well">
     <link rel="icon" href="/vue-press/image/favicon.ico">
     
-    <link rel="preload" href="/vue-press/assets/css/0.styles.e40496fb.css" as="style"><link rel="preload" href="/vue-press/assets/js/app.a8dc0f2f.js" as="script"><link rel="preload" href="/vue-press/assets/js/2.4807ba6c.js" as="script"><link rel="preload" href="/vue-press/assets/js/9.03aa3e7c.js" as="script"><link rel="prefetch" href="/vue-press/assets/js/10.c8ca046f.js"><link rel="prefetch" href="/vue-press/assets/js/11.7391ba96.js"><link rel="prefetch" href="/vue-press/assets/js/12.33cc71db.js"><link rel="prefetch" href="/vue-press/assets/js/13.174e230c.js"><link rel="prefetch" href="/vue-press/assets/js/14.f9c6ff3a.js"><link rel="prefetch" href="/vue-press/assets/js/15.867ab787.js"><link rel="prefetch" href="/vue-press/assets/js/3.30e29291.js"><link rel="prefetch" href="/vue-press/assets/js/4.7facdfbf.js"><link rel="prefetch" href="/vue-press/assets/js/5.4fe5a681.js"><link rel="prefetch" href="/vue-press/assets/js/6.70949b9b.js"><link rel="prefetch" href="/vue-press/assets/js/7.71f13459.js"><link rel="prefetch" href="/vue-press/assets/js/8.dd57c21f.js">
+    <link rel="preload" href="/vue-press/assets/css/0.styles.e40496fb.css" as="style"><link rel="preload" href="/vue-press/assets/js/app.cbe209b3.js" as="script"><link rel="preload" href="/vue-press/assets/js/2.1454d783.js" as="script"><link rel="preload" href="/vue-press/assets/js/9.0a8b9834.js" as="script"><link rel="prefetch" href="/vue-press/assets/js/10.e53d2e86.js"><link rel="prefetch" href="/vue-press/assets/js/11.ca1238f5.js"><link rel="prefetch" href="/vue-press/assets/js/12.93286ac7.js"><link rel="prefetch" href="/vue-press/assets/js/13.ac9b625f.js"><link rel="prefetch" href="/vue-press/assets/js/14.7c033f13.js"><link rel="prefetch" href="/vue-press/assets/js/15.867ab787.js"><link rel="prefetch" href="/vue-press/assets/js/3.c3557737.js"><link rel="prefetch" href="/vue-press/assets/js/4.99c7ee36.js"><link rel="prefetch" href="/vue-press/assets/js/5.4fe5a681.js"><link rel="prefetch" href="/vue-press/assets/js/6.94fe4198.js"><link rel="prefetch" href="/vue-press/assets/js/7.ee8423a5.js"><link rel="prefetch" href="/vue-press/assets/js/8.80b53e1d.js">
     <link rel="stylesheet" href="/vue-press/assets/css/0.styles.e40496fb.css">
   </head>
   <body>
@@ -24,7 +24,7 @@
   age<span class="token punctuation">:</span> <span class="token string">'32'</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">let</span> array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
-</code></pre></div><ul><li><p><span style="color:red;">不要写全局方法！！！防止出现意向不到的bug或者迷之方法重载</span></p></li> <li><p>定时器 <code>setTimeout</code> <code>setInterval</code>需要在对应的逻辑处销毁 例如页面销毁</p></li> <li><h2 id="vue推荐写法"><a href="#vue推荐写法" aria-hidden="true" class="header-anchor">#</a> Vue推荐写法</h2> <ul><li>自定义组件名应该是多个单词 可以有效避免因```html``模板标签重复而出现的问题</li></ul> <div class="language-html extra-class"><pre class="language-html"><code>// 不推荐
+</code></pre></div><ul><li><p><span style="color:red;">不要写全局方法！！！防止出现意向不到的bug或者迷之方法重载</span></p></li> <li><p>定时器 <code>setTimeout</code> <code>setInterval</code>需要在对应的逻辑处销毁 例如页面销毁</p></li> <li><h2 id="vue推荐写法"><a href="#vue推荐写法" aria-hidden="true" class="header-anchor">#</a> Vue推荐写法</h2> <ul><li>自定义组件名应该是多个单词 可以有效避免因<code>html</code>模板标签重复而出现的问题</li></ul> <div class="language-html extra-class"><pre class="language-html"><code>// 不推荐
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Header</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Header</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><div class="language-html 推荐 extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Home-Header</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Home-Header</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><ul><li><p>组件书写顺序 <code>html</code> <code>script</code> <code>style</code></p></li> <li><p>组件中的<code>data</code>必须是一个函数 而不是对象 防止多个子组件如果使用了相同的变量 而造成的变量污染 相互影响问题</p></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
@@ -56,6 +56,10 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
+</code></pre></div><ul><li>标签中如果有多个特定的属性 需要分行显示</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Home-Header</span> 
+  <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item in dataList<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">:dataList</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>dataList<span class="token punctuation">&quot;</span></span>
+<span class="token punctuation">/&gt;</span></span>
 </code></pre></div><ul><li><code>script</code>内部书写顺序</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> <span class="token string">'component'</span><span class="token punctuation">,</span>
   <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -80,11 +84,11 @@
 
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><ul><li><p><code>v-if</code>以及<code>v-show</code>的使用选择</p> <ul><li>如果是频繁的切换显示和隐藏 那么使用<code>v-show</code> 减少页面的repaint</li> <li>如果条件很少发生切换 则使用<code>v-if</code></li></ul></li> <li><p>如果是在使用vue的情况下 应该尽量减少dom的操作 而专注于数据的操作 通过操作数据来改变视图</p></li> <li><p>书写必要的注释 尤其是页面逻辑复杂时 提高代码可读性</p></li> <li><p>及时删除弃用代码</p></li> <li><p>单文件尽量保持300行以内 提高代码可阅读性</p></li> <li><p>配置husky 代码提交时 触发git hooks eslint有有报错无法提交git</p></li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><ul><li><p><code>v-if</code>以及<code>v-show</code>的使用选择</p> <ul><li>如果是频繁的切换显示和隐藏 那么使用<code>v-show</code> 减少页面的repaint</li> <li>如果条件很少发生切换 则使用<code>v-if</code></li></ul></li> <li><p>如果是在使用vue的情况下 应该尽量减少dom的操作 而专注于数据的操作 通过操作数据来改变视图</p></li> <li><p>书写必要的注释 尤其是页面逻辑复杂时 提高代码可读性</p></li> <li><p>及时删除弃用代码</p></li> <li><p>单文件尽量保持300行以内 提高代码可阅读性</p></li> <li><p>配置husky 代码提交时 触发git hooks eslint有有报错无法提交git</p></li> <li><p><code>git commit -m</code> <code>git commit -am</code></p></li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/vue-press/Browser/" class="prev">
           浏览器相关机制
         </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/vue-press/assets/js/app.a8dc0f2f.js" defer></script><script src="/vue-press/assets/js/2.4807ba6c.js" defer></script><script src="/vue-press/assets/js/9.03aa3e7c.js" defer></script>
+    <script src="/vue-press/assets/js/app.cbe209b3.js" defer></script><script src="/vue-press/assets/js/2.1454d783.js" defer></script><script src="/vue-press/assets/js/9.0a8b9834.js" defer></script>
   </body>
 </html>

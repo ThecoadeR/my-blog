@@ -31,7 +31,8 @@ module.exports = {
         children: [
           '/JS/Base.md',
           '/JS/',
-          '/JS/OOP.md'
+          '/JS/OOP.md',
+          '/JS/interview.md'
         ]
       },
       {
