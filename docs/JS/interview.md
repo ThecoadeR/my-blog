@@ -66,7 +66,7 @@
     * actions: 存放的是异步操作或者是批量的同步操作 组件通过```dispatch```调用actions
     * mutations: 存放的是一些同步方法 对state的修改 actions通过```commit```调用
 
-* ## Javascript部分
+* ## Javascript基础部分
   * Javascript中的数据类型
     * ```String```
     * ```Number```
@@ -84,10 +84,66 @@
     * 值类型: 每个变量都是相互独立的 不会相互影响
   * typeOf和instanceOf的区别
     * typeof只能区分值类型 唯一可以区分的引用类型是```Function``` instanceof用于区分引用类型
-    * ```js
+    ```js
     typeof(null) // 返回object 
     ```
+  * instanceof的原理
+    * 首先 需要知道的是 实例和原型对象之间是通过```__proto__```关联的 而原型对象又是通过```prototype```和构造函数关联 
+    ```js
+    var obj={x:100,y:200}
+    obj.__proto__ === Object.prototype // true
+    instanceof(obj) // Object
+    ```
+    * 用instanceof去判断某个引用对象是否是特定类的实例其实并不准确 最好的方法还是用 某个实例的```constructor```去判断
 
+  * 解释一下eventloop
+    * 在JS的运行栈中 JS会先执行同步任务 当所有的同步任务都已经执行完毕了以后 再返回来执行异步任务 并且执行完一个异步以后 去查找下一个异步任务 直到所有的事件都被处理完
+    ```js
+    console.log(1)
+    setTimeout(() => {
+      console.log(2)
+    }, 0)
+    console.log(3)
+    // 输出顺序 1 3 2 先执行同步再执行异步
+    ```
+  * 理解异步任务被放入任务栈和执行时间
+  ```js
+  for(var i = 0; i < 3; i++) {
+    setTimeout((i) => {
+      console.log(i)
+    },1000)
+  }
+  // 永远输出的是2 因为首先执行同步任务 当for循环结束以后 才会执行setTimeout 一个for循环可能只需要几毫秒 但是setTimeout过了1秒才执行打印 这个时候 for循环已经结束了
+  ```
+  * JavaScript中的继承方式
+    * 通过改变this指向继承
+  ```js
+   function Car (type) {
+     this.type = '车'
+   }
+   new Car()
+
+   function Audi () {
+     Car.apply(this)
+     this.name = '奥迪'
+   }
+  ```
+    * 通过改变this指向继承 这样的继承方式有一个问题就是 无法继承原型链上的一些方法和属性
+    * 通过原型链继承
+    ```js
+    function Parent () {
+      this.type = 'parent'
+    }
+    function Child () {
+      this.name = 'Child'
+    }
+    // 将child的原型指向Parent
+    Child.prototype = new Parent()
+    var c = new Child()
+    console.log(c) // {type:'parent',name:'Child'}  c的__proto__ 指向了 Parent 同时继承了 type这个属性 
+    ```
+  * 为什么class里需要写一句```super()```
+    * 为了执行父类的构造函数  
   * 解释一下暂时性死区
     * 在块及作用域中 如果访问一个未声明的变量 那么会返回一个undefined 如果在块及作用域外 会报引用错误
 
@@ -98,3 +154,90 @@
     * 箭头函数无法改变this指向
     * 箭头函数不支持重复的命名
     * 箭头函数没有原型
+
+  * 手写一个Ajax请求
+    ```js
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, false);
+    xhr.onreadtstatechange = function () {
+        if (xhr.readystate == 4) {
+            //响应内容解析完成，可以在客户端调用了
+            if (xhr.status == 200) {
+                //客户端的请求成功了
+                alert(xhr.responseText);
+            }
+        }
+    }
+    xhr.send(null);
+    /** readystate状态 
+    0 未初始化还没有调用send 
+    1 载入状态 已调用send 
+    2 载入完成 已经收到全部的响应内容
+    3 正在解析响应内容
+    4 解析完毕 可以在客户端调用
+    */
+    ```
+  * 浏览器从输入URL到页面渲染的过程
+    * 浏览器解析地址
+    * 解析dns
+    * 寻找服务器地址
+    * tcp三次握手
+    * 浏览器发送数据 等待服务器响应
+    * 服务器处理请求 并返回给浏览器
+    * 浏览器收到响应内容 得到html代码
+    * 渲染页面
+
+  * GET请求和POST请求的区别  
+    * GET请求参数暴露在URL里 POST不会
+    * GET请求在浏览器回退的时候是无害的 不会提交二次请求
+    * GET请求参数放在URL里 POST请求放在Request header中
+    * GET请求参数长度有限制 POST没有
+    * GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留
+    * GET请求参数数据类型只接受ASCII字符，而POST没有限制。
+    * GET请求会参数被完整的保留在浏览器历史记录里 POST不会
+    * GET产生的URL地址可以被Bookmark，而POST不可以
+    * GET请求只能进行url编码，而POST支持多种编码方式
+
+## CSS部分
+  * 实现一个三栏布局
+    * float
+    * 绝对定位
+    * flex布局
+    * table布局
+    * grid布局
+
+  * 标准盒模型和IE盒模型的区别
+    * 标准盒模型的content宽高就是标准的content宽高
+    * IE盒子模型的content包含了```padding```和```border```
+
+  * 实现水平垂直居中的方式
+    * 不确定宽高的情况下 可以用绝对定位+transform
+    * 确定宽高的情况下可以用绝对定位+margin
+    * 确定宽高的情况下 可以用绝对定位 top left bottom right 都为0 margin为auto
+    * flex布局
+    * display: table-cell
+    ```css
+      .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      width: 240px;
+      height: 180px;
+      border:1px solid #666;
+      }
+    ```
+## 浏览器性能优化
+  * 触发浏览器重排
+    * 增加、删除、修改DOM节点时 会导致重排或者重绘
+    * 当移动Dom的位置 或者有动画的情况
+    * 当修改CSS样式的时候
+    * 当浏览器窗口大小发生变化 或者滚动的时候
+    * 修改浏览器字体大小
+  * 触发浏览器重绘
+    * 页面内容发生变化 一定会触发重绘  
+  * 性能优化
+    * 使用浏览器缓存 强缓存 协商缓存
+    * 资源压缩合并 减少http请求
+    * 使用DNS预解析
+    * 异步加载资源 ```defer``` ```async``` 前者是在HTML解析完之后才执行 如果是多个 按照加载顺序依次执行 后者是在加载完之后立即执行 如果是多个 执行顺序和加载顺序无关
+    * 使用CDN
