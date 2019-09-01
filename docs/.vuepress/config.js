@@ -51,6 +51,13 @@ module.exports = {
         ]
       },
       {
+        title: 'Electron',
+        collapsable: true,
+        children: [
+          '/Electron/'
+        ],
+      },
+      {
         title: '浏览器相关',
         collapsable: true,
         children: [
