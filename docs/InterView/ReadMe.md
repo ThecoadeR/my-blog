@@ -4,7 +4,7 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-02-29 17:17:00
- * @LastEditTime: 2020-02-29 17:38:32
+ * @LastEditTime: 2020-02-29 17:44:33
  -->
 * ## Vue部分
   * #### 解释一下mvvm框架
@@ -25,8 +25,13 @@
     * ```destoryed```
     * ```beforeUpdate```
     * ```updated```
-    需要注意的是```beforeDestroy```是要我们自己手动调用的 然后才会执行```destoryed``` 最后的两个生命周期 只有在数据更新的时候 才会被调用
-  
+    * ```active```
+    * ```deactived```
+    * 后两个为keep-live专属
+    
+  * ### 父子组件生命周期
+    父beforeCreated -> 父created -> 父beforeMounted -> 子beforeCreated -> 子created -> 子beforeMounted -> 子mounted -> 父mounted
+    
   * #### ```computed```和```watch```的区别
     * 前者拥有缓存机制 也就是说 假设页面下的某个值 如果没有发生变化 前者只会执行一次 性能更高 computed更适用于计算一些已经有的值 而watch更适用于监听接口返回的某个值
 
@@ -204,7 +209,7 @@
     console.log(c) // {type:'parent',name:'Child'}  c的__proto__ 指向了 Parent 同时继承了 type这个属性 
     ```
     * 组合继承
-    
+
   * #### 为什么class里需要写一句```super()```
     * 为了执行父类的构造函数  
   * #### 解释一下暂时性死区
