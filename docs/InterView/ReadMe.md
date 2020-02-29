@@ -4,7 +4,7 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-02-29 17:17:00
- * @LastEditTime: 2020-02-29 17:25:30
+ * @LastEditTime: 2020-02-29 17:38:32
  -->
 * ## Vue部分
   * #### 解释一下mvvm框架
@@ -203,6 +203,8 @@
     var c = new Child()
     console.log(c) // {type:'parent',name:'Child'}  c的__proto__ 指向了 Parent 同时继承了 type这个属性 
     ```
+    * 组合继承
+    
   * #### 为什么class里需要写一句```super()```
     * 为了执行父类的构造函数  
   * #### 解释一下暂时性死区
@@ -313,4 +315,91 @@
     设计模式 es6 对象map
 
 ## Webpack相关面试题
-未完待续...⛽️💯
+* ###  webpack 基本配置
+* #### 如何拆分配置和merge
+  * 定义三个文件 
+  * webpack.common.js(配置公用内容)
+  * webpack.dev.js(配置开发环境内容)
+  * webpack.prod.js(配置生产环境内容)
+    公用内容通过webpack-merge这个库引入
+    ```js
+    import { commonJS } from './webpack.common.js'
+    import { smart } from 'webpack-merge'
+
+    module.exports = smart(commonJS, {
+      // xxx新的配置项
+    })
+    ```
+
+* ### 配置devServer
+  引入webpack dev-server
+  解决开发环境下跨域问题
+  ```
+  devSever: {
+    port: 8080, // 端口
+    progress: true, // 打包进度条
+    open: true, // 自动打开浏览器
+    compress: true, // gzip压缩 优化性能
+    proxy: {
+      '/api': 'http://localhost: 3000'
+    }
+  }
+  ```
+
+* ### 简述css loader
+  * loader的执行顺序是从右往左
+  * postcss-loader 自动添加厂商前缀 解决兼容性
+  * 关于这些loader的关系其实 首先css-loader帮助我们梳理各个css之间的关系 然后 style-css帮助我们将css文件挂载到index.html文件的头部
+  ```js
+  {
+    test: /\.css/,
+    loader: ['style-loader', 'css-loader', 'postcss-loader']
+  }
+  ```
+
+* ### 配置filename小技巧
+  * 添加hash值 会比较打包过后的hash值 如果打包的文件js代码没有变化(hash值未变化) 浏览器可以直接读取缓存 增加响应速度 如果变化了 则会重新发起http请求重新请求网页
+  ```js
+  output: {
+    filename: 'bundle.[contentHash:8].js'
+  }
+  ```
+
+* ### 如何配置多页面入口
+```js
+entry: {
+  index: path.join(path, 'index.js')
+  other: path.join(path, 'other.js')
+}
+
+output: {
+  filename: '[name].[contentHash:8].js'
+}
+// name 对应前面entry配置的key  index other
+
+plugin: {
+  new HtmlWebpackPlugin({
+    template: path.join(path, 'index.js'),
+    filename: 'index.html',
+    chunks: ['index'] // 当前页面只引入与之相关的js 不配置chunks则会全部引入
+  }),
+  new HtmlWebpackPlugin({
+    template: path.join(path, 'other.js'),
+    filename: 'other.html',
+    chunks: ['other'] // 当前页面只引入与之相关的js 不配置chunks则会全部引入
+  })
+}
+```
+
+* ### webpack如何异步加载js代码
+适用js文件比较大情况下 打包以后也会生成chunk
+```js
+import('文件路径').then((res) => {
+  console.log(res)
+})
+```
+
+* ### module bundle chunk的区别
+  * module - 源码文件(模块)
+  * chunk - 多个模块合成的代码
+  * bundle - 输出文件
