@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Vue基础之组件之间的通信 | 前端打杂师 - Zhu</title>
     <meta name="description" content="All is well">
+    <meta name="generator" content="VuePress 1.3.1">
     <link rel="icon" href="/vue-press/image/favicon.ico">
     
-    <link rel="preload" href="/vue-press/assets/css/0.styles.e40496fb.css" as="style"><link rel="preload" href="/vue-press/assets/js/app.cbe209b3.js" as="script"><link rel="preload" href="/vue-press/assets/js/2.1454d783.js" as="script"><link rel="preload" href="/vue-press/assets/js/13.ac9b625f.js" as="script"><link rel="prefetch" href="/vue-press/assets/js/10.e53d2e86.js"><link rel="prefetch" href="/vue-press/assets/js/11.ca1238f5.js"><link rel="prefetch" href="/vue-press/assets/js/12.93286ac7.js"><link rel="prefetch" href="/vue-press/assets/js/14.7c033f13.js"><link rel="prefetch" href="/vue-press/assets/js/15.867ab787.js"><link rel="prefetch" href="/vue-press/assets/js/3.c3557737.js"><link rel="prefetch" href="/vue-press/assets/js/4.99c7ee36.js"><link rel="prefetch" href="/vue-press/assets/js/5.4fe5a681.js"><link rel="prefetch" href="/vue-press/assets/js/6.94fe4198.js"><link rel="prefetch" href="/vue-press/assets/js/7.ee8423a5.js"><link rel="prefetch" href="/vue-press/assets/js/8.80b53e1d.js"><link rel="prefetch" href="/vue-press/assets/js/9.0a8b9834.js">
-    <link rel="stylesheet" href="/vue-press/assets/css/0.styles.e40496fb.css">
+    <link rel="preload" href="/vue-press/assets/css/0.styles.309fb19c.css" as="style"><link rel="preload" href="/vue-press/assets/js/app.7648ec0f.js" as="script"><link rel="preload" href="/vue-press/assets/js/2.84534382.js" as="script"><link rel="preload" href="/vue-press/assets/js/15.c97032ac.js" as="script"><link rel="prefetch" href="/vue-press/assets/js/10.ba4fae65.js"><link rel="prefetch" href="/vue-press/assets/js/11.55567561.js"><link rel="prefetch" href="/vue-press/assets/js/12.d00f41c6.js"><link rel="prefetch" href="/vue-press/assets/js/13.c2e8ff63.js"><link rel="prefetch" href="/vue-press/assets/js/14.e5b4c6b0.js"><link rel="prefetch" href="/vue-press/assets/js/16.4c814ee4.js"><link rel="prefetch" href="/vue-press/assets/js/17.fa6e8c03.js"><link rel="prefetch" href="/vue-press/assets/js/3.7d025fd1.js"><link rel="prefetch" href="/vue-press/assets/js/4.bcde7382.js"><link rel="prefetch" href="/vue-press/assets/js/5.0cab28aa.js"><link rel="prefetch" href="/vue-press/assets/js/6.a66b5e73.js"><link rel="prefetch" href="/vue-press/assets/js/7.e335b7ea.js"><link rel="prefetch" href="/vue-press/assets/js/8.adf5f1a8.js"><link rel="prefetch" href="/vue-press/assets/js/9.5d0df94a.js">
+    <link rel="stylesheet" href="/vue-press/assets/css/0.styles.309fb19c.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-press/" class="home-link router-link-active"><!----> <span class="site-name">前端打杂师 - Zhu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-press/" class="nav-link">首页</a></div><div class="nav-item"><a href="/vue-press/vue/" class="nav-link">博客</a></div><div class="nav-item"><a href="https://github.com/ThecoadeR/vue-press/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vue-press/" class="home-link router-link-active"><!----> <span class="site-name">前端打杂师 - Zhu</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vue-press/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/vue-press/JS/Base.html" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="https://github.com/ThecoadeR/vue-press/" target="_blank" rel="noopener noreferrer" class="nav-link external">
   GitHub
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-press/" class="nav-link">首页</a></div><div class="nav-item"><a href="/vue-press/vue/" class="nav-link">博客</a></div><div class="nav-item"><a href="https://github.com/ThecoadeR/vue-press/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vue-press/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/vue-press/JS/Base.html" class="nav-link">
+  博客
+</a></div><div class="nav-item"><a href="https://github.com/ThecoadeR/vue-press/" target="_blank" rel="noopener noreferrer" class="nav-link external">
   GitHub
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VuePress</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue.js</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-press/Vue/" class="sidebar-link">Vue过渡动画原理解析</a></li><li><a href="/vue-press/Vue/Vue-base.html" class="active sidebar-link">Vue基础之组件之间的通信</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#父组件向子组件传值" class="sidebar-link">父组件向子组件传值</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#子组件向父组件传值" class="sidebar-link">子组件向父组件传值</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#平级组件之间传值" class="sidebar-link">平级组件之间传值</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#新建一个-js文件-并且创建event-bus" class="sidebar-link">新建一个.js文件 并且创建event-bus</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#利用enent-bus向外触发事件" class="sidebar-link">利用enent-bus向外触发事件</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#监听事件" class="sidebar-link">监听事件</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端代码规范</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue基础之组件之间的通信"><a href="#vue基础之组件之间的通信" aria-hidden="true" class="header-anchor">#</a> Vue基础之组件之间的通信</h1> <h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2> <p>Vue组件之间的通信 其实是一种非常常见的场景 不管是业务逻辑还是前段面试中都是非常频繁出现的 这篇文章将会逐一讲解各个传值的方式 不过在此之前 先来总结一下各个传值方式吧</p> <ul><li>1.父组件向子组件传值  =&gt; <code>props</code></li> <li>2.子组件向父组件传值 =&gt; <code>$emit</code></li> <li>3.平级组件传值 =&gt; 总线机制 <code>event-bus</code></li> <li>4.Vuex</li></ul> <h2 id="父组件向子组件传值"><a href="#父组件向子组件传值" aria-hidden="true" class="header-anchor">#</a> 父组件向子组件传值</h2> <p>举个🌰 你在项目中定义了一个公共组件Header 这个Header里需要根据具体的业务场景去展示不同的title 那这个时候就是一个非常常见的父组件向子组件传值的业务场景了</p> <p>下面 一起来看一下代码
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VuePress</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Vue.js</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue-press/Vue/" class="sidebar-link">Vue过渡动画原理解析</a></li><li><a href="/vue-press/Vue/Vue-base.html" class="active sidebar-link">Vue基础之组件之间的通信</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#父组件向子组件传值" class="sidebar-link">父组件向子组件传值</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#子组件向父组件传值" class="sidebar-link">子组件向父组件传值</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#平级组件之间传值" class="sidebar-link">平级组件之间传值</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#新建一个-js文件-并且创建event-bus" class="sidebar-link">新建一个.js文件 并且创建event-bus</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#利用enent-bus向外触发事件" class="sidebar-link">利用enent-bus向外触发事件</a></li><li class="sidebar-sub-header"><a href="/vue-press/Vue/Vue-base.html#监听事件" class="sidebar-link">监听事件</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Webpack</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Electron</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器相关</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端代码规范</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端面试</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue基础之组件之间的通信"><a href="#vue基础之组件之间的通信" class="header-anchor">#</a> Vue基础之组件之间的通信</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>Vue组件之间的通信 其实是一种非常常见的场景 不管是业务逻辑还是前段面试中都是非常频繁出现的 这篇文章将会逐一讲解各个传值的方式 不过在此之前 先来总结一下各个传值方式吧</p> <ul><li>1.父组件向子组件传值  =&gt; <code>props</code></li> <li>2.子组件向父组件传值 =&gt; <code>$emit</code></li> <li>3.平级组件传值 =&gt; 总线机制 <code>event-bus</code></li> <li>4.Vuex</li></ul> <h2 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="header-anchor">#</a> 父组件向子组件传值</h2> <p>举个🌰 你在项目中定义了一个公共组件Header 这个Header里需要根据具体的业务场景去展示不同的title 那这个时候就是一个非常常见的父组件向子组件传值的业务场景了</p> <p>下面 一起来看一下代码
 首先 定义一个公用的Header组件 这个组件里也没有什么复杂的逻辑 就是用props接受一个父组件传递过来的title 并且渲染到页面上</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!-- 通用导航栏 --&gt;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>head-title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
@@ -23,9 +32,9 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  name<span class="token punctuation">:</span> <span class="token string">'Header'</span><span class="token punctuation">,</span>
-  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span> String
+  name<span class="token operator">:</span> <span class="token string">'Header'</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> String
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>  
 </code></pre></div><p>父组件其实也是啥都没有 也就是引入Header组件 并且向子组件传递一个title的值 子组件利用props接收到这个值 并且渲染在页面上</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
@@ -35,26 +44,26 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Header <span class="token keyword">from</span> <span class="token string">&quot;components/header/header&quot;</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  name<span class="token punctuation">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
   <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      title<span class="token punctuation">:</span> <span class="token string">&quot;首页&quot;</span>
+      title<span class="token operator">:</span> <span class="token string">&quot;首页&quot;</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span>
     Header
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre></div><p>这样就完成了一个最简单最基础的父组件向子组件传值的过程 不过呢 这个<code>props</code> Vue其实也是支持许多拓展的了
 *</p> <ul><li>例如开发者可以通过 <code>defalut</code>
-去定义一个默认值 当没有接受到父组件传递过来的值的时候 可以展示这个默认值</li> <li><code>type</code> 给props指定一个类型 当类型不符合预期的时候 会在控制台上报错</li> <li>当默认的校验规则都无法满足要求的时候 props也支持自定义一个validator 只需要在props里传递一个validator函数即可</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token function-variable function">validator</span><span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+去定义一个默认值 当没有接受到父组件传递过来的值的时候 可以展示这个默认值</li> <li><code>type</code> 给props指定一个类型 当类型不符合预期的时候 会在控制台上报错</li> <li>当默认的校验规则都无法满足要求的时候 props也支持自定义一个validator 只需要在props里传递一个validator函数即可</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">validator</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment">// do somethings</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><h2 id="子组件向父组件传值"><a href="#子组件向父组件传值" aria-hidden="true" class="header-anchor">#</a> 子组件向父组件传值</h2> <p>说到子组件向父组件传值之前 需要解释一个名词 <code>单项数据流</code> 也就是 子组件不能随意更改父组件传递过来的值 以免造成一些数据污染之类的情况 推荐的做法是 如果子组件想要更改一个值 应该是通知父组件 让父组件进行更改</p> <p>话不多说 还是继续缕一缕思路 然后写代码
+</code></pre></div><h2 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="header-anchor">#</a> 子组件向父组件传值</h2> <p>说到子组件向父组件传值之前 需要解释一个名词 <code>单项数据流</code> 也就是 子组件不能随意更改父组件传递过来的值 以免造成一些数据污染之类的情况 推荐的做法是 如果子组件想要更改一个值 应该是通知父组件 让父组件进行更改</p> <p>话不多说 还是继续缕一缕思路 然后写代码
 首先 需要在子组件里定义一个事件 例如点击事件 通过点击向父组件派发一个事件同时可以在事件里携带需要向外传递的值 同时父组件监听到了这个事件 并且在事件里处理对应的逻辑</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!-- 通用导航栏 --&gt;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>head-title<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>toParent<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
@@ -62,11 +71,11 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  name<span class="token punctuation">:</span> <span class="token string">'Header'</span><span class="token punctuation">,</span>
-  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span> String
+  name<span class="token operator">:</span> <span class="token string">'Header'</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> String
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
       <span class="token function">toParent</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment">// 第一个参数 需要父组件监听的时间 第二个参数 向外传递的值</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'getMsg'</span><span class="token punctuation">,</span><span class="token string">'这是传递给父组件的值'</span><span class="token punctuation">)</span>
@@ -80,17 +89,17 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Header <span class="token keyword">from</span> <span class="token string">&quot;components/header/header&quot;</span><span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  name<span class="token punctuation">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token string">&quot;Home&quot;</span><span class="token punctuation">,</span>
   <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      title<span class="token punctuation">:</span> <span class="token string">&quot;首页&quot;</span><span class="token punctuation">,</span>
-      msg<span class="token punctuation">:</span> <span class="token string">''</span>
+      title<span class="token operator">:</span> <span class="token string">&quot;首页&quot;</span><span class="token punctuation">,</span>
+      msg<span class="token operator">:</span> <span class="token string">''</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  components<span class="token operator">:</span> <span class="token punctuation">{</span>
     Header
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token function">getMsg</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>msg<span class="token punctuation">)</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>msg <span class="token operator">=</span> msg
@@ -98,40 +107,40 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><p>这样通过<code>$emit</code>就可以成功获取从子组件传递过来的值 并且父组件可以更改这个值 从而实现一些对应的业务逻辑</p> <h2 id="平级组件之间传值"><a href="#平级组件之间传值" aria-hidden="true" class="header-anchor">#</a> 平级组件之间传值</h2> <p>两个没什么关系的组件之间有时候也是会需要传递一些值 例如页面A要传递值给页面B B接受这个值并且渲染在页面上</p> <p>下面来说一下实现思路</p> <ul><li>1.创建一个js文件 在文件中新建一个vue的实例 并且在实例上新建一个EventBus  或者在vue的属性上挂载一个envent-bus 这样通过属性的方式创建的event-bus是一个全局的属性</li> <li>2.在需要使用event-bus的组件里引入 bus并且利用<code>$emit</code>向外触发事件</li> <li>3.在需要接受值的组件里利用<code>$on</code>来接受值</li></ul> <h2 id="新建一个-js文件-并且创建event-bus"><a href="#新建一个-js文件-并且创建event-bus" aria-hidden="true" class="header-anchor">#</a> 新建一个.js文件 并且创建event-bus</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
+</code></pre></div><p>这样通过<code>$emit</code>就可以成功获取从子组件传递过来的值 并且父组件可以更改这个值 从而实现一些对应的业务逻辑</p> <h2 id="平级组件之间传值"><a href="#平级组件之间传值" class="header-anchor">#</a> 平级组件之间传值</h2> <p>两个没什么关系的组件之间有时候也是会需要传递一些值 例如页面A要传递值给页面B B接受这个值并且渲染在页面上</p> <p>下面来说一下实现思路</p> <ul><li>1.创建一个js文件 在文件中新建一个vue的实例 并且在实例上新建一个EventBus  或者在vue的属性上挂载一个envent-bus 这样通过属性的方式创建的event-bus是一个全局的属性</li> <li>2.在需要使用event-bus的组件里引入 bus并且利用<code>$emit</code>向外触发事件</li> <li>3.在需要接受值的组件里利用<code>$on</code>来接受值</li></ul> <h2 id="新建一个-js文件-并且创建event-bus"><a href="#新建一个-js文件-并且创建event-bus" class="header-anchor">#</a> 新建一个.js文件 并且创建event-bus</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> EventBus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre></div><h2 id="利用enent-bus向外触发事件"><a href="#利用enent-bus向外触发事件" aria-hidden="true" class="header-anchor">#</a> 利用enent-bus向外触发事件</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="利用enent-bus向外触发事件"><a href="#利用enent-bus向外触发事件" class="header-anchor">#</a> 利用enent-bus向外触发事件</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>handleClick<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> EventBus <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../event-bus.js&quot;</span><span class="token punctuation">;</span>
     <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-        name<span class="token punctuation">:</span> <span class="token string">&quot;Count&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token string">&quot;Count&quot;</span><span class="token punctuation">,</span>
         <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token keyword">return</span> <span class="token punctuation">{</span>
-                num<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                num<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        methods<span class="token operator">:</span> <span class="token punctuation">{</span>
             <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 EventBus<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">&quot;getNum&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-                    num<span class="token punctuation">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>num<span class="token punctuation">,</span>
+                    num<span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>num<span class="token punctuation">,</span>
                 <span class="token punctuation">}</span><span class="token punctuation">)</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-</code></pre></div><h2 id="监听事件"><a href="#监听事件" aria-hidden="true" class="header-anchor">#</a> 监听事件</h2> <div class="language-js extra-class"><pre class="language-js"><code> EventBus<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">&quot;getNum&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+</code></pre></div><h2 id="监听事件"><a href="#监听事件" class="header-anchor">#</a> 监听事件</h2> <div class="language-js extra-class"><pre class="language-js"><code> EventBus<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">&quot;getNum&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
                 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
             <span class="token punctuation">}</span><span class="token punctuation">)</span>
             
 </code></pre></div><p>这样就通过event-bus成功将页面A的值传递给了页面B的值 写起来的感觉 其实还是和子组件向父组件传值的过程非常相似</p> <p>下面还会提到Vuex传值 不过感觉可以新开一个文章..所以..下次再见啦 👋👋</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
-        ←
-        <a href="/vue-press/Vue/" class="prev router-link-active">
-          Vue过渡动画原理解析
-        </a></span> <span class="next"><a href="/vue-press/Webpack/">
-          webpack是什么?
-        </a>
-        →
-      </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/vue-press/assets/js/app.cbe209b3.js" defer></script><script src="/vue-press/assets/js/2.1454d783.js" defer></script><script src="/vue-press/assets/js/13.ac9b625f.js" defer></script>
+      ←
+      <a href="/vue-press/Vue/" class="prev router-link-active">
+        Vue过渡动画原理解析
+      </a></span> <span class="next"><a href="/vue-press/Webpack/">
+        webpack是什么?
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vue-press/assets/js/app.7648ec0f.js" defer></script><script src="/vue-press/assets/js/2.84534382.js" defer></script><script src="/vue-press/assets/js/15.c97032ac.js" defer></script>
   </body>
 </html>

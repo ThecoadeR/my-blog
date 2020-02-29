@@ -1,3 +1,9 @@
+/*
+ * @Descripttion: 
+ * @Author: Zhu Hai Hua
+ * @Date: 2020-02-29 11:40:04
+ * @LastEditTime: 2020-02-29 17:26:14
+ */
 module.exports = {
   base: "/vue-press/",
   title: '前端打杂师 - Zhu',
@@ -13,7 +19,7 @@ module.exports = {
         link: '/' 
       },
       { text: '博客', 
-        link: '/vue/',
+        link: '/JS/Base.md',
       },
       { text: 'GitHub', link: 'https://github.com/ThecoadeR/vue-press/'}
     ],
@@ -32,7 +38,6 @@ module.exports = {
           '/JS/Base.md',
           '/JS/',
           '/JS/OOP.md',
-          '/JS/interview.md'
         ]
       },
       {
@@ -47,7 +52,7 @@ module.exports = {
         title: 'Webpack',
         collapsable: true,
         children: [
-          '/Webpack/'
+          '/Webpack/',
         ]
       },
       {
@@ -70,7 +75,14 @@ module.exports = {
         children: [
           '/CheckList/'
         ]
-      }
+      },
+      {
+        title: '前端面试',
+        collapsable: true,
+        children: [
+          '/InterView/',
+        ]
+      },
     ],
     markdown: {
       // 显示代码块行号

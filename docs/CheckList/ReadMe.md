@@ -100,33 +100,7 @@
     :dataList="dataList"
   />
   ```
-  * ```script```内部书写顺序
-  ```js
-  export default {
-    name: 'component',
-    data () {
-      return {
 
-      }
-    },
-    components: {
-
-    },
-    // 生命周期钩子函数书写顺序按照生命周期书写
-    mounted () {
-
-    },
-    methods: {
-
-    },
-    watch: {
-
-    },
-    computed: {
-
-    }
-  }
-  ```
   * ```v-if```以及```v-show```的使用选择
     * 如果是频繁的切换显示和隐藏 那么使用```v-show``` 减少页面的repaint
     * 如果条件很少发生切换 则使用```v-if```
