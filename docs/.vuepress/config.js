@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-02-29 11:40:04
- * @LastEditTime: 2020-02-29 17:26:14
+ * @LastEditTime: 2020-03-01 21:56:08
  */
 module.exports = {
   base: "/vue-press/",
@@ -80,7 +80,14 @@ module.exports = {
         title: '前端面试',
         collapsable: true,
         children: [
-          '/InterView/',
+          '/InterView/'
+        ]
+      },
+      {
+        title: '随手记',
+        collapsable: true,
+        children: [
+          '/others/'
         ]
       },
     ],
