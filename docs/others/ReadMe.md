@@ -3,7 +3,7 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-03-01 21:53:50
- * @LastEditTime: 2020-03-02 20:28:16
+ * @LastEditTime: 2020-03-04 21:58:34
  -->
 
  * ### ES modules 和 commonJS导出规范差异
@@ -36,3 +36,5 @@
 
 * #### gitignore忽略node_modules写法
   * ```**/node_modules/```
+
+* #### 在一个模块里 console.log(this) 这个this指向的其实是模块本身 并不是window
