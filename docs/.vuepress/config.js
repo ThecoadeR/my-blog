@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-02-29 11:40:04
- * @LastEditTime: 2020-03-01 21:56:08
+ * @LastEditTime: 2020-03-16 10:58:01
  */
 module.exports = {
   base: "/vue-press/",
@@ -41,11 +41,18 @@ module.exports = {
         ]
       },
       {
-        title: 'Vue.js',
+        title: 'Vue',
         collapsable: true,
         children: [
           '/Vue/',
           '/Vue/Vue-base.md'
+        ]
+      },
+      {
+        title: 'React',
+        collapsable: true,
+        children: [
+          '/React/'
         ]
       },
       {
