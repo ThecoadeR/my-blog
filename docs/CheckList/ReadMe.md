@@ -77,7 +77,7 @@
     }
   }
   ```
-  * 使用```v-for```的时候 必须搭配```key``` key值可以提高性能 快速查找对应dom节点
+  * 使用```v-for```的时候 必须搭配```key``` 尽量不使用index作为key值
   ```html
   <Home-Header v-for="item in dataList" :key="item.id">
   ```
@@ -100,12 +100,8 @@
     :dataList="dataList"
   />
   ```
-
-  * ```v-if```以及```v-show```的使用选择
-    * 如果是频繁的切换显示和隐藏 那么使用```v-show``` 减少页面的repaint
-    * 如果条件很少发生切换 则使用```v-if```
   
-  * 如果是在使用vue的情况下 应该尽量减少dom的操作 而专注于数据的操作 通过操作数据来改变视图
+  * 组件标签内部为空时 采用单标签闭合的形式
 
   * 书写必要的注释 尤其是页面逻辑复杂时 提高代码可读性
 
@@ -113,6 +109,7 @@
 
   * 单文件尽量保持300行以内 提高代码可阅读性
 
-  * 配置husky 代码提交时 触发git hooks eslint有有报错无法提交git
-
-  * ```git commit -m ``` ```git commit -am```
+  * 大部分项目开启```eslit``` 以及采用了```lint-staged```做本地代码规范检测 提交规范遵循angular
+    * ```git add .```
+    * ```git commit```(会自动调起交互式命令行 请根据提交内容自行选择)
+    * ```git push```
