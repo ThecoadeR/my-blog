@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-02-29 11:40:04
- * @LastEditTime: 2020-03-16 10:58:01
+ * @LastEditTime: 2020-05-14 08:38:52
  */
 module.exports = {
   base: "/vue-press/",
@@ -73,7 +73,8 @@ module.exports = {
         title: '浏览器相关',
         collapsable: true,
         children: [
-          '/Browser/'
+          '/Browser/',
+          '/Browser/V8.md'
         ]
       },
       {
