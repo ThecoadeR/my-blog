@@ -3,7 +3,7 @@
  * @Descripttion: 注释
  * @Author: 朱海华
  * @Date: 2020-08-27 14:54:45
- * @LastEditTime: 2020-09-01 20:53:25
+ * @LastEditTime: 2020-09-01 22:04:39
 -->
 ## 生命周期
   ### 组件初始化
@@ -67,7 +67,27 @@
 ## Hooks
   * 定义
     * 在函数组件中使用特定的预定义函数来标记状态和组件生命周期 使得所有组件都可以使用函数来编写
+    
   * 优化了类组件的三大问题
     1. 函数组件无```this```指向问题
     2. 自定义hook方便复用逻辑
     3. 副作用的关注点分离 => 副作用指视图修改以外的所有事件 例如: ajax请求 本地持久化缓存 绑定事件等
+
+  * 使用
+    :::tip
+      可以通过```eslint-react-hooks```这个插件防止书写```hooks```过程中的一些代码顺序错误以及调用次数错误
+      配置参考: [eslint-react-hooks](http://react.html.cn/docs/hooks-rules.html)
+    :::
+    1. 所有的hooks函数都需要以```use```开头 例如:```useState``` 基础使用方式如下
+    ![基础使用](./img/hooks.jpg)
+    2. 上述代码中 ```useState```是如何知道需要更新的count就是该组件的而不是其他组件的呢?
+        * 因为js是单线程的 在同一情况下 只会有一个组件的上下文存在 所以在useState可以知道
+    3. 多个```useState```是如何返回的？
+        * 根据<span style="color: red">第一次运行state的顺序</span> 自上而下逐一返回 一定要确保代码顺序是一致的
+    4. ```useState```可以传入一个函数 来执行延迟初始化提高效率
+        ```js
+          const [count, setCount] = useState(() => {
+            return 0
+          })
+        ```
+    5. 如果```useState```传入相同的值 页面是不会重复渲染的
