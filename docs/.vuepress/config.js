@@ -2,10 +2,10 @@
  * @Descripttion: 
  * @Author: Zhu Hai Hua
  * @Date: 2020-02-29 11:40:04
- * @LastEditTime: 2020-08-27 14:56:27
+ * @LastEditTime: 2020-09-01 22:24:13
  */
 module.exports = {
-  base: "/vue-press/",
+  base: "/my-blog/",
   title: '前端打杂师 - Zhu',
   description: 'All is well',
   head: [
