@@ -1,3 +1,9 @@
+###
+ # @Descripttion: 注释
+ # @Author: 朱海华
+ # @Date: 2020-02-29 11:40:04
+ # @LastEditTime: 2020-09-01 22:10:15
+### 
 #!/usr/bin/env sh
 
 # 确保脚本抛出遇到的错误
@@ -20,6 +26,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>  REPO=github上的项目
- git push -f git@github.com:ThecoadeR/vue-press.git master:gh-pages
+ git push -f git@github.com:ThecoadeR/my-blog.git master:gh-pages
 
 cd -
